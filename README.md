@@ -1,24 +1,24 @@
 # React-Native-Error-Solution
 This repo save all my error which I catch when learning React-Native and its solution.
 
-## 1. Error: Unable to resolve module ` react-native-screens` from `node_modules/react-navigation-/native ... "
+### 1. Error: Unable to resolve module ` react-native-screens` from `node_modules/react-navigation-/native ... "
    Related error package: "@react-navigation/native".
    ```bash
     # Solution.
      npm i react-native-screens
    ```
-## 2. Invariant Violation: requireNativeComponent: "RNSScreenStackHeaderConfig" was not found in the UIManager. '@react-navigation/native-stack';
+### 2. Invariant Violation: requireNativeComponent: "RNSScreenStackHeaderConfig" was not found in the UIManager. '@react-navigation/native-stack';
    Related error package: .
    ```bash
     # Solution.
      npm install react-native-screens react-native-safe-area-context
    ```
-## 3. can not run npx react-native init MyApp --template react-native-template-typescript or TypeError: cli.init is not a function ...
+### 3. can not run npx react-native init MyApp --template react-native-template-typescript or TypeError: cli.init is not a function ...
    ```bash
     # Solution.
      npx react-native@latest init Name_Your_Project --template react-native-template-typescript
    ```
-## 4.  Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+### 4.  Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
    ```bash
     # Solution 1.
      add to gradle.properties file this code below:
