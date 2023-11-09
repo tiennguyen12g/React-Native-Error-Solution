@@ -27,8 +27,12 @@ This repo save all my error which I catch when learning React-Native and its sol
       step 1: npm uninstall -g react-native-cli, npm uninstall -g react-native
       step 2: npm install -g react-native-cli, npm install -g react-native 
    ```
-
-
+### 5. "react-native-vector-icons" show not correct icon.
+   #### Android
+   *  - Edit android/app/build.gradle (NOT android/build.gradle) and add:
+   ```bash
+   apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+   ```
 # Tip when use package.
 ### 1.  when you use the '@react-navigation/native'.
    ```bash
