@@ -70,7 +70,7 @@ export type Theme = typeof customTheme;
 ```
 * Step 2.
 Next, create a GlobalThemes.d.ts file with the following content.
-  ```bash
+```bash
 import type { Theme } from "./src/theme";
 
 declare module "@react-navigation/native" {
@@ -82,3 +82,4 @@ Use in a component
 ```bash
 const theme = useTheme();
 ```
+
