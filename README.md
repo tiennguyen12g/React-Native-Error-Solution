@@ -53,3 +53,32 @@ This repo save all my error which I catch when learning React-Native and its sol
      );
    }
    ```
+### 3. How to custom Theme with "@react-navigation/native"
+* Step 1.
+Create a file MyThemes.tsx like this:
+```bash
+import { DefaultTheme } from "@react-navigation/native";
+
+export const customTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    customColor: "#ccc",
+  },
+};
+export type Theme = typeof customTheme;
+```
+* Step 2.
+Next, create a GlobalThemes.d.ts file with the following content.
+  ```bash
+import type { Theme } from "./src/theme";
+
+declare module "@react-navigation/native" {
+  export function useTheme(): Theme;
+}
+```
+* Step 3.
+Use in a component
+```bash
+const theme = useTheme();
+```
