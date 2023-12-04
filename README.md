@@ -178,4 +178,22 @@ const theme = useTheme();
             }),
 
         ```
+ ### 6. File '@tsconfig/react-native/tsconfig.json' not found.
+ This error is related with npm and yarn tool.
+ ** npm
+ ```bash
+// file tsconfig.json
+{
+  "extends":  "@tsconfig/react-native/tsconfig.json", 
+   ...
+}
 
+```
+** yarn
+ ```bash
+{
+  // with yarn use ./node_modules. with npm remove it.
+  "extends":  "./node_modules/@tsconfig/react-native/tsconfig.json", 
+   ...
+}
+```
