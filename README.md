@@ -83,3 +83,86 @@ Use in a component
 const theme = useTheme();
 ```
 
+### 4. How to custom Header with "@react-navigation/native"
+* 1. Set header for all page.
+  ```bash
+          screenOptions={({ navigation }) => ({
+            headerBackTitle:"hello"
+            headerLeft: () => (
+                <HeaderBackButton
+                    labelVisible={true}
+                    tintColor={'green'}
+                    onPress={() => navigation.goBack()}
+                    style={{
+                      top: Platform.OS === 'ios' ? -insetTop/2 : 0,
+                    }}
+                />
+            ),
+            headerTitleStyle:{
+              top: -50,
+              marginTop: -50,
+            }
+        })}
+        >
+  ```
+  * 2. Set header for specific component.
+       headerStatusBarHeight is very important
+       ```bash
+             options={{
+              headerShown:true,
+              headerStyle:{
+                backgroundColor:"orange"
+              },
+              headerStatusBarHeight: 0,
+              headerTitleAlign:"center",
+       // Method 1.
+              headerBackTitleVisible:false,
+              headerLeft: () => <CustomBackButton />
+       or you can change to method 2:
+              // headerBackTitle:"Back",
+              // headerBackTitleStyle:{
+              //   top: 0
+              // }
+            }}
+       ```
+    ### 5. How to custom animation navigate to other page with "@react-navigation/native"
+    * 1. Silder to the right.
+         ```bash
+          <Stack.Navigator 
+          initialRouteName="SignIn"
+          screenOptions={{
+            headerShown: true,
+            headerMode: "float", //turn on this for Android
+            // use to control duration.
+            transitionSpec: {
+              open: { animation: 'timing', config: { duration: 400} }, // Adjust duration as needed
+              close: { animation: 'timing', config: { duration: 400 } }, // Adjust duration as needed
+            },
+            // try some custom.
+            // transitionSpec:{
+            //   open: { animation: 'timing', config: { duration: 400} },
+            //   close: {
+            //     animation: "spring", 
+            //     config:{stiffness: 1000, damping:500, mass:3,overshootClamping: true, 
+            //       restDisplacementThreshold:0.01, restSpeedThreshold:0.01}}
+            // }
+          }}
+          >
+        ```
+        or you can use cardStyleInterpolator to animate it.
+        ```bash
+           cardStyleInterpolator: ({ current, layouts }) => ({
+              cardStyle: {
+                transform: [
+                  {
+                    translateX: current.progress.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [layouts.screen.width, 0],
+                    }),
+                  },
+                ],
+              },
+            }),
+
+        ```
+
