@@ -86,6 +86,7 @@ const theme = useTheme();
 ### 4. How to custom Header with "@react-navigation/native"
 * 1. Set header for all page.
   ```bash
+  // HeaderBackButton from "react-native/navigation
           screenOptions={({ navigation }) => ({
             headerBackTitle:"hello"
             headerLeft: () => (
@@ -124,6 +125,18 @@ const theme = useTheme();
               //   top: 0
               // }
             }}
+       ```
+       write this outside Navigator component
+       ```bash
+       const CustomBackButton = () => {
+        const navigation = useNavigation();
+           return (
+             <TouchableOpacity onPress={() => navigation.goBack()} style={{left:20,justifyContent:"center", alignItems:"center",          flexDirection:"row"}}>
+                  <MaterialIcons name='arrow-back-ios' size={24} />
+                  <Text style={{fontSize:18, left: -5 }}>Back</Text>
+             </TouchableOpacity>
+           );
+         };
        ```
     ### 5. How to custom animation navigate to other page with "@react-navigation/native"
     * 1. Silder to the right.
